@@ -241,6 +241,11 @@ module Kitchen
             #{sudo("apt-get")} install -qy gcc
             #{sudo("apt-get")} install -qy make
             #{sudo("apt-get")} install -qy git
+          elif exists zypper; then
+            echo "trying zypper..."
+            #{sudo("zypper")} --non-interactive install gcc
+            #{sudo("zypper")} --non-interactive install make
+            #{sudo("zypper")} --non-interactive install git
           else
             echo ">>>>>> apt-get, yum not found on this instance"
           fi
